@@ -1,33 +1,49 @@
-/**
- * Created by User on 20/02/2018.
- */
+import java.math.BigInteger;
+
 public class Substitution
 {
-    public String encryptWithSub(String inputString){
-        String encryptedString = "";
+    public String encryptWithSub(String inputString, String secretKey){
+        String subString = "";
+        int value = 0;
+
+        for(int j = 0; j<secretKey.length(); j++){
+            value += (int)secretKey.charAt(j);
+        }
+
+        int subVal = value%secretKey.length() + 2;
+
         for(int i=0 ; i<inputString.length() ; i++) {
             char c = inputString.charAt(i);
             if(i%2 == 0){
-                encryptedString += ((char) (c + 3));
+                subString += ((char) (c + subVal));
             }
             else{
-                encryptedString += ((char) (c + 5));
+                subString += ((char) (c + subVal + 3));
             }
 
         }
 
-        return encryptedString;
+        return subString;
     }
 
-    public String decryptwithSub(String inputString){
+    public String decryptwithSub(String inputString, String secretKey){
         String decryptedString = "";
+
+        int value = 0;
+
+        for(int j = 0; j<secretKey.length(); j++){
+            value += (int)secretKey.charAt(j);
+        }
+
+        int subVal = value%secretKey.length() + 2;
+
         for(int i=0; i<inputString.length(); i++){
             char c = inputString.charAt(i);
             if(i%2 == 0){
-                decryptedString += ((char) (c - 3));
+                decryptedString += ((char) (c - subVal));
             }
             else{
-                decryptedString += ((char) (c - 5));
+                decryptedString += ((char) (c - subVal - 3));
             }
         }
 

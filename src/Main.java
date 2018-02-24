@@ -1,10 +1,14 @@
-/**
- * Created by User on 20/02/2018.
- */
+
 public class Main {
     public static void main(String[] args) {
         Substitution sub = new Substitution();
-        System.out.println(sub.encryptWithSub("chamath samarawickrama"));
-        System.out.println(sub.decryptwithSub("fmdrdyk%vfpfufznfpufpf"));
+        Permutation perm = new Permutation();
+        String subVal = sub.encryptWithSub("chamath samarawickrama","hello");
+//        System.out.println(sub.encryptWithSub("chamath samarawickrama","hello"));
+//        System.out.println(sub.decryptwithSub("goete{l'whqhvh{pgrvhqh","hello"));
+
+        System.out.println(perm.encryptWithPerm(subVal,"hello"));
+
+//        System.out.println(perm.decryptWithPerm("ctmimhhacaa rk*msar*aawa*","hello"));
     }
 }
