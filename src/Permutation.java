@@ -31,9 +31,6 @@ public class Permutation {
     public String decryptWithPerm(String inputString, String secretKey){
         int n = secretKey.length();
         int width = inputString.length()/n;
-        System.out.println(inputString.length());
-        System.out.println(n);
-        System.out.println(inputString.length()%n);
         if(inputString.length()%n != 0){
             return "Invalid secret key";
         }
