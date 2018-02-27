@@ -14,15 +14,18 @@ public class Substitution
 
         for(int i=0 ; i<inputString.length() ; i++) {
             char c = inputString.charAt(i);
-            if(i%2 == 0){
+            if(i%3 == 0){
                 subString += ((char) (c + subVal));
             }
-            else{
+            else if(i%3 == 1){
                 subString += ((char) (c + subVal + 3));
+            }
+            else{
+                subString += ((char) (c + subVal + 5));
             }
 
         }
-        System.out.println("Enc sub: "+subString);
+//        System.out.println("Enc sub: "+subString);
         return subString;
     }
 
@@ -39,14 +42,17 @@ public class Substitution
 
         for(int i=0; i<inputString.length(); i++){
             char c = inputString.charAt(i);
-            if(i%2 == 0){
+            if(i%3 == 0){
                 decryptedString += ((char) (c - subVal));
             }
-            else{
+            else if(i%3 == 1){
                 decryptedString += ((char) (c - subVal - 3));
             }
+            else{
+                decryptedString += ((char) (c - subVal - 5));
+            }
         }
-        System.out.println("Dec sub: "+decryptedString);
+//        System.out.println("Dec sub: "+decryptedString);
         return decryptedString;
     }
 }

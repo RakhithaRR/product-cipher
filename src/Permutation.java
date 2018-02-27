@@ -19,10 +19,10 @@ public class Permutation {
         for(int i = 0 ; i < n ; i++) {
             for(int j = 0 ; j < width ; j++) {
                 char c = inputString.charAt(i+(j*n));
-                System.out.print(c);
+//                System.out.print(c);
                 permutedString.append(c);
             }
-            System.out.println();
+//            System.out.println();
         }
         System.out.println(permutedString);
         return permutedString.toString();
@@ -31,17 +31,26 @@ public class Permutation {
     public String decryptWithPerm(String inputString, String secretKey){
         int n = secretKey.length();
         int width = inputString.length()/n;
-        StringBuffer reorganisedString = new StringBuffer();
-        for(int i = 0 ; i < width ; i++) {
-            for(int j = 0 ; j< n ; j++) {
-                char c = inputString.charAt(i+(j*width));
-                System.out.print(c);
-                reorganisedString.append(c);
-            }
-            System.out.println();
+        System.out.println(inputString.length());
+        System.out.println(n);
+        System.out.println(inputString.length()%n);
+        if(inputString.length()%n != 0){
+            return "Invalid secret key";
         }
+        else{
+
+            StringBuffer reorganisedString = new StringBuffer();
+            for(int i = 0 ; i < width ; i++) {
+                for(int j = 0 ; j< n ; j++) {
+                    char c = inputString.charAt(i+(j*width));
+//                    System.out.print(c);
+                    reorganisedString.append(c);
+                }
+//                System.out.println();
+            }
 
 
-        return reorganisedString.toString();
+            return reorganisedString.toString();
+        }
     }
 }
