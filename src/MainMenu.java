@@ -26,5 +26,11 @@ public class MainMenu extends JFrame{
                 Encrypt encr = new Encrypt();
             }
         });
+        decryptBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Decrypt decr = new Decrypt();
+            }
+        });
     }
 }

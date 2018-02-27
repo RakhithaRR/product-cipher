@@ -5,15 +5,13 @@ import java.nio.BufferUnderflowException;
  * Created by User on 20/02/2018.
  */
 public class SystemIO {
-    public String inputFile = "input.txt";
-    public String result = "output.txt";
 
-    public void saveToFile(String value){
+    public void saveToFile(String text, String fileName){
         try{
-            FileWriter fw = new FileWriter(result,true);
+            FileWriter fw = new FileWriter(fileName,true);
             BufferedWriter bw = new BufferedWriter(fw);
 
-            bw.write(value);
+            bw.write(text);
             bw.newLine();
             bw.close();
             fw.close();
@@ -24,17 +22,17 @@ public class SystemIO {
         }
     }
 
-    public String readFromFile(){
+    public String readFromFile(String fileName){
         String secretMessage = "";
         try{
-            FileReader fr = new FileReader(inputFile);
+            FileReader fr = new FileReader(fileName);
             BufferedReader br = new BufferedReader(fr);
 
             secretMessage = br.readLine().trim();
 
             br.close();
             fr.close();
-            System.out.println("Secret key taken");
+            System.out.println("Text recognised");
 
         }
         catch(IOException e){

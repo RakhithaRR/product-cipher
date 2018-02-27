@@ -6,14 +6,15 @@ public class Permutation {
         int deficit;
         int n = secretKey.length();
         deficit = inputString.length()%n;
+        System.out.println("Deficit: "+deficit);
         if(deficit != 0) {
             deficit = n-deficit;
             for(int a = deficit; a != 0 ; a--) {
                 inputString += "*";
             }
         }
+        System.out.println(inputString);
         StringBuffer permutedString = new StringBuffer();
-//        System.out.println(“\nTransposition Matrix:”);
         int width = inputString.length()/n;
         for(int i = 0 ; i < n ; i++) {
             for(int j = 0 ; j < width ; j++) {
@@ -23,17 +24,17 @@ public class Permutation {
             }
             System.out.println();
         }
-//        System.out.println(transpositionOutput);
+        System.out.println(permutedString);
         return permutedString.toString();
     }
 
     public String decryptWithPerm(String inputString, String secretKey){
         int n = secretKey.length();
-        n = inputString.length()/n;
+        int width = inputString.length()/n;
         StringBuffer reorganisedString = new StringBuffer();
-        for(int i = 0 ; i < n ; i++) {
+        for(int i = 0 ; i < width ; i++) {
             for(int j = 0 ; j< n ; j++) {
-                char c = inputString.charAt(i+(j*n));
+                char c = inputString.charAt(i+(j*width));
                 System.out.print(c);
                 reorganisedString.append(c);
             }

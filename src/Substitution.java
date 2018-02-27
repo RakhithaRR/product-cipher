@@ -6,7 +6,7 @@ public class Substitution
         String subString = "";
         int value = 0;
 
-        for(int j = 0; j<secretKey.length(); j++){
+        for(int j = 0; j < secretKey.length(); j++){
             value += (int)secretKey.charAt(j);
         }
 
@@ -22,7 +22,7 @@ public class Substitution
             }
 
         }
-
+        System.out.println("Enc sub: "+subString);
         return subString;
     }
 
@@ -46,7 +46,7 @@ public class Substitution
                 decryptedString += ((char) (c - subVal - 3));
             }
         }
-
+        System.out.println("Dec sub: "+decryptedString);
         return decryptedString;
     }
 }
